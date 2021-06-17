@@ -1,0 +1,47 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+        <h1>Angular-Study</h1>
+    </div>
+    <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-menu-item routerLink="/test1">
+        <i nz-icon nzType="mail"></i>
+        <span>test1</span>
+      </li>
+      <li nz-menu-item routerLink="/test2">
+        <i nz-icon nzType="coffee"></i>
+        <span>test2</span>
+      </li>
+      <li nz-menu-item routerLink="/automatic-scoring">
+        <i nz-icon nzType="radius-setting" nzTheme="outline"></i>
+        <span>测试脚本</span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <i nz-icon
+             nzType="menu-fold"
+             nzTheme="outline"
+             *ngIf="!isCollapsed"></i>
+          <i nz-icon
+             nzType="menu-unfold"
+             nzTheme="outline"
+             *ngIf="isCollapsed"></i>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
